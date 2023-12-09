@@ -1,0 +1,98 @@
+<app-header></app-header>
+
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">We Care</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+            
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Contact Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="h-100 bg-light rounded d-flex align-items-center p-5">
+                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white" style="width: 55px; height: 55px;">
+                        <i class="fa fa-map-marker-alt text-primary"></i>
+                    </div>
+                    <div class="ms-4">
+                        <p class="mb-2">Address</p>
+                        <h5 class="mb-0">123 Street, New York, USA</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="h-100 bg-light rounded d-flex align-items-center p-5">
+                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white" style="width: 55px; height: 55px;">
+                        <i class="fa fa-phone-alt text-primary"></i>
+                    </div>
+                    <div class="ms-4">
+                        <p class="mb-2">Call Us Now</p>
+                        <h5 class="mb-0">+012 345 6789</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="h-100 bg-light rounded d-flex align-items-center p-5">
+                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white" style="width: 55px; height: 55px;">
+                        <i class="fa fa-envelope-open text-primary"></i>
+                    </div>
+                    <div class="ms-4">
+                        <p class="mb-2">Mail Us Now</p>
+                        <h5 class="mb-0">info@example.com</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 wow fadeIn" data-wow-delay="0.1s">
+                <div class="bg-light rounded p-5" >
+                  
+                    <h1 class="mb-4">Have Any Doubts? Let's Check!</h1>
+                    <p class="mb-4">
+                        Your go-to platform for quick and reliable health assessments. Upload your medical reports, and our advanced system will swiftly analyze the data to determine the presence of common respiratory conditions such as COVID-19, normal pneumonia, and more. 
+                    </p>
+                    <form style="min-height: 200px;">
+                        <div class="row g-3">
+                         
+                      
+                        
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input  type="file" (change)="selectFile($event)"  class="form-control m-1" placeholder="image">
+                                 </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" (click)="onUpload();$event.preventDefault();">Test</button>
+                            </div> 
+                           
+                        
+                         
+                              
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Display Uploaded Image -->
+            <div class="col-lg-5 wow fadeIn" data-wow-delay="0.5s">
+                <div class="h-100" style="min-height: 400px;">
+                <img *ngIf="uploadedImage" [src]="uploadedImage" alt="" style="height: 470px !important; width: 90%;">
+                <img *ngIf="!uploadedImage" src="assets/img/feature.jpg" alt="" style="height: 470px !important;width: 90%">
+                </div>
+            </div>
+           
+       
+    </div>
+</div>
+<!-- Contact End -->
+
+<app-footer></app-footer>
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>

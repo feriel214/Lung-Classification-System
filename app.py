@@ -1,20 +1,20 @@
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS  # Import CORS
 
 import os
 from werkzeug.utils import secure_filename
 from tensorflow.keras.models import load_model
 from modelcnn import predict_image_class
+
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
+
 UPLOAD_FOLDER = 'uploads'
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-
-
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif','jfif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
 
 @app.route('/symptoms', methods=['GET', 'POST'])
 def symptoms():
@@ -31,16 +31,11 @@ def symptoms():
             filename = secure_filename(file.filename)
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(file_path)
-            predicted_class=predict_image_class(file_path)
+            predicted_class = predict_image_class(file_path)
           
             return jsonify({'class': predicted_class})
 
         return jsonify({'error': 'Invalid file format'})
-    
-
-
-    
 
 if __name__ == '__main__':
     app.run(debug=True)
-

@@ -30,8 +30,7 @@ def predict_image_class(image_path):
 
     return predicted_class_name
 
-@app.route('/predict', methods=['POST'])
-def predict():
+
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'})
 
